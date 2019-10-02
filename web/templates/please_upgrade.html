@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Annotate{% endblock %}
+{% block body %}
+  {% include "header.html" %}
+  <div class="container">
+    <div class="page-header">
+      <h2>Annotation Request Received</h2>
+    </div>
+
+    <p>You file is too large, please <a href="{{ url_for('subscribe_get') }}">upgrade</a>!</p>
+    <p>Or <a href="{{ url_for('annotate') }}">go back</a></p>
+
+  </div> <!-- container -->
+{% endblock %}

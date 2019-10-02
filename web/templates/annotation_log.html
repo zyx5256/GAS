@@ -1,0 +1,39 @@
+<!--
+annotations.html - Display a list of user annotation jobs with links to details for each job
+Copyright (C) 2011-2018 Vas Vasiliadis <vas@uchicago.edu>
+University of Chicago
+-->
+{% extends "base.html" %}
+{% block title %}Job_detail{% endblock %}
+{% block body %}
+  {% include "header.html" %}
+  <div class="container">
+    <div class="page-header">
+      <h1>Annotation Details</h1>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+	{% if information %}
+	{% if information['job_status']=="COMPLETED" %}
+	<p><b>Log Information: </b></p>
+	<p>{{information['log']|safe}}</p>
+        {% else %}
+        <p>Job not complete yet!.</p>
+	{% endif %}
+	{% else %}
+	<p>No annotations found!.</p>
+	{% endif %}
+      </div>
+    </div>
+    <hr>
+    <div class="row text-left">
+      <hr>
+      <a href="{{ url_for('annotations_list') }}" title="Back to annotations list">
+        <button type="button" class="btn btn-link" aria-label="Back to annotations list">
+         &#8592Back to annotations list
+        </button>
+      </a>
+    </div>
+  </div> <!-- container -->
+{% endblock %}

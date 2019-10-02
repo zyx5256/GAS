@@ -1,0 +1,9 @@
+#!/bin/bash
+export WORKON_HOME=/home/ubuntu/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+source /home/ubuntu/.virtualenvs/mpcs/bin/activate
+aws s3 cp s3://mpcs-students/zyx/gas_ann_server.zip /home/ubuntu/
+unzip /home/ubuntu/gas_ann_server.zip -d /home/ubuntu/
+rm /home/ubuntu/gas_ann_server.zip
+chown -R ubuntu:ubuntu /home/ubuntu/
+sudo -u ubuntu /home/ubuntu/run_ann.sh &
